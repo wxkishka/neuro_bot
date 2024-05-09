@@ -3,19 +3,22 @@ import requests
 
 # from creds import IAMTOKEN, FOLDER_ID
 from config import STT_URL, TTS_URL, IAMTOKEN, FOLDER_ID
-
+# импортирую модуль для получения токенов
+from creds import get_creds
+# получаю iam_token и folder_id
+iam_token, folder_id = get_creds()
 
 def speech_to_text(data):
     """Функция отправляет запрос в SpeechKit,
        и преобразует голосовое сообщение в текст."""
     # Заголовок запроса.
     headers = {
-        'Authorization': f'Bearer {IAMTOKEN}',
+        'Authorization': f'Bearer {iam_token}',
     }
     # Параметры запроса.
     params = '&'.join([
         'topic=general',
-        f'folderId={FOLDER_ID}',
+        f'folderId={folder_id}',
         'lang=ru-RU'
     ])
     # Запрос в SpeechKit.    
@@ -36,8 +39,8 @@ def speech_to_text(data):
 def text_to_speech(text):
     """Функция отправляет запрос пользователя в SpeechKit,
         и преобразует текстовое сообщение в речевое."""
-    iam_token = IAMTOKEN
-    folder_id = FOLDER_ID
+    # iam_token = IAMTOKEN
+    # folder_id = FOLDER_ID
     # Заголовок запроса/
     headers = {
         'Authorization': f'Bearer {iam_token}',

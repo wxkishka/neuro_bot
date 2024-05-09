@@ -3,6 +3,10 @@ import requests
 import logging  # модуль для сбора логов
 # импортирую константы из config файла
 from config import (LOGS, MAX_GPT_TOKENS, SYSTEM_PROMPT, IAMTOKEN, FOLDER_ID)
+# импортирую модуль для получения токенов
+from creds import get_creds
+# получаю iam_token и folder_id
+iam_token, folder_id = get_creds()
 
 # настраиваю запись событий в лог файл.
 logging.basicConfig(filename=LOGS, level=logging.ERROR, format='%(asctime)s'
@@ -14,11 +18,11 @@ def count_gpt_tokens(messages):
     """Функция возрвращает количество токенов в сообщении."""
     url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/tokenizeCompletion'
     headers = {
-        'Authorization': f'Bearer {IAMTOKEN}',
+        'Authorization': f'Bearer {iam_token}',
         'Content-Type': 'application/json'
     }
     data = {
-        'modelUri': f'gpt://{FOLDER_ID}/yandexgpt-lite',
+        'modelUri': f'gpt://{folder_id}/yandexgpt-lite',
         "messages": messages
     }
     try:
@@ -32,11 +36,11 @@ def ask_gpt(messages):
     """Функция отправляет запрос и возвращает ответ от GPT."""
     url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
     headers = {
-        'Authorization': f'Bearer {IAMTOKEN}',
+        'Authorization': f'Bearer {iam_token}',
         'Content-Type': 'application/json'
     }
     data = {
-        "modelUri": f'gpt://{FOLDER_ID}/yandexgpt-lite',
+        "modelUri": f'gpt://{folder_id}/yandexgpt-lite',
         "completionOptions": {
             "stream": False,
             "temperature": 0.7,

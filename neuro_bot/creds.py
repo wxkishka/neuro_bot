@@ -4,17 +4,10 @@ import logging  # модуль для сбора логов
 import time  # модуль для работы со временем
 from datetime import datetime  # модуль для работы с датой и временем
 import requests
-
+# Импортирую настройки из config файла
 from config import LOGS, IAM_TOKEN_PATH, FOLDER_ID_PATH, BOT_TOKEN_PATH
 
-
-HOME_DIR = '/home/student/neuro_bot'  # путь к папке с проектом
-IAM_TOKEN_PATH = f'{HOME_DIR}/creds/iamtoken.txt'  # файл для хранения iam_token
-FOLDER_ID_PATH = f'{HOME_DIR}/creds/folderid.txt'  # файл для хранения folder_id
-BOT_TOKEN_PATH = f'{HOME_DIR}/creds/token.txt'  # файл для хранения bot_token
-
-
-# настраиваем запись логов в файл
+# настраиваю параметры записи логов
 logging.basicConfig(filename=LOGS, level=logging.INFO,
                     format="%(asctime)s FILE: %(filename)s IN: %(funcName)s MESSAGE: %(message)s", filemode="w")
 
