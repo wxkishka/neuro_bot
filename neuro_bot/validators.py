@@ -1,13 +1,13 @@
 # Модуль с функциями проверок ограничений.
 
-import logging  # модуль для сбора логов
+import logging  # модуль для записи логов
 import math
 # импортирую константы из файла config.
-from config import (LOGS, MAX_USERS, MAX_USER_GPT_TOKENS
-                    , MAX_USER_STT_BLOCKS, MAX_USER_TTS_SYMBOLS, MAX_CUR_TTS_SYMBOLS)
-# подтягиваем функции для работы с БД
+from config import (LOGS, MAX_USERS, MAX_USER_GPT_TOKENS,
+                    MAX_USER_STT_BLOCKS, MAX_USER_TTS_SYMBOLS, MAX_CUR_TTS_SYMBOLS)
+# импортирую функции для работы с БД
 from database import count_users, count_all_limits
-# подтягиваем функцию для подсчета токенов в списке сообщений
+# импортирую функцию для подсчета токенов в списке сообщений
 from yandex_gpt import count_gpt_tokens
 
 # настраиваю параметры логирования событий.
@@ -36,9 +36,8 @@ def is_gpt_token_limit(messages, total_spent_tokens):
 
 def is_stt_block_limit(user_id, duration):
     """Функция проверяет ограничение пользователя по числу аудиоблоков."""
-
-    audio_blocks = math.ceil(duration / 15) # перевожу секунды в sst блоки
-    all_blocks = count_all_limits(user_id, limit_type='stt_blocks') + audio_blocks # всего блоков пользователя
+    audio_blocks = math.ceil(duration / 15)  # перевожу секунды в sst блоки
+    all_blocks = count_all_limits(user_id, limit_type='stt_blocks') + audio_blocks  # всего блоков пользователя
 
     # Проверка ограничения длительности сообщения
     if duration >= 30:
@@ -53,6 +52,7 @@ def is_stt_block_limit(user_id, duration):
 
     return audio_blocks, ''
 
+
 # проверяю превышение лимитов пользователя на преобразование текста в аудио.
 def is_tts_symbol_limit(user_id, text):
     """Функция проверяет ограничение пользователя на число символов,
@@ -64,8 +64,8 @@ def is_tts_symbol_limit(user_id, text):
     # Проверяю превышение общего количества символов в сообщениях пользователя.
     if total_symbols >= MAX_USER_TTS_SYMBOLS:
         error = (f'Превышен общий лимит SpeechKit {MAX_USER_TTS_SYMBOLS}.'
-              'Использовано: {total_symbols} символов.'
-              f'Доступно: {MAX_USER_TTS_SYMBOLS - total_symbols}')
+                 'Использовано: {total_symbols} символов.'
+                 f'Доступно: {MAX_USER_TTS_SYMBOLS - total_symbols}')
         return None, error
 
     # Проверяю превышение количества символов в текущем сообщении пользователя.

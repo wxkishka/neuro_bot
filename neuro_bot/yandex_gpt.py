@@ -1,13 +1,13 @@
 # Модуль работы с нейросетью Яндекса.
 import requests
 import logging  # модуль для сбора логов
-# подтягиваем константы из config файла
-# from creds import IAMTOKEN, FOLDER_ID
+# импортирую константы из config файла
 from config import (LOGS, MAX_GPT_TOKENS, SYSTEM_PROMPT, IAMTOKEN, FOLDER_ID)
 
 # настраиваю запись событий в лог файл.
 logging.basicConfig(filename=LOGS, level=logging.ERROR, format='%(asctime)s'
                     'FILE: %(filename)s IN: %(funcName)s MESSAGE: %(message)s', filemode='w')
+
 
 # Определяю количество токенов в сообщении.
 def count_gpt_tokens(messages):

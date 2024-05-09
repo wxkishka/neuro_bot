@@ -20,15 +20,14 @@ def speech_to_text(data):
     ])
     # Запрос в SpeechKit.    
     response = requests.post(
-            f'{STT_URL}?{params}',
-        headers=headers, 
-        data=data
-    )
+                f'{STT_URL}?{params}',
+                headers=headers,
+                data=data)
     
     decoded_data = response.json()
     # Проверяю ответ на ошибки.
     if decoded_data.get('error_code') is None:
-        return True, decoded_data.get('result') # Статус, ответ если нет ошибок.
+        return True, decoded_data.get('result')  # Статус, ответ если нет ошибок.
     else:
         # return False, 'Ошибка при преобразовании речи в текст.'
         return False, decoded_data.get('error_code')
@@ -52,7 +51,7 @@ def text_to_speech(text):
     }
     # Отправляю запрос в SpeechKit.
     response = requests.post(
-        #'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize',
+        # 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize',
         TTS_URL,
         headers=headers,
         data=data
