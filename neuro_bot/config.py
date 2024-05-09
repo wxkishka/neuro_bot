@@ -1,6 +1,6 @@
 # Модуль настроек Нейро-бота
 
-TOKEN = '6924781016:AAFe6DmVlFmhFGWE18Y-wSfFN6gcHzrh3Zl'  # token телеграм-бота
+TOKEN = '5924781016:AAFe6DmVlFmhFGWE18Y-wSfFN6gcHzrh3Zk'  # token телеграм-бота
 IAMTOKEN = 't1.9euelZqYjpPMzJiMjsyVmcjKm5rNze3rnpWajM2emZvPmYqJlsaSlpmQnI3l8_d1AyNO-e9NK19J_d3z9zUyIE75700rX0n9zef1656VmpybjZLIiseKyZGWy4qVjpOV7_zF656VmpybjZLIiseKyZGWy4qVjpOVveuelZqQxpCOzMeKx4mTmcqOiZaRybXehpzRnJCSj4qLmtGLmdKckJKPioua0pKai56bnoue0oye.zB3skoyZU4-8rRhHRQlKX_AtTfm30ewpFNoOcGOsQ3pxE3FxKfZ_ONMmuia_2cM5HRHVRTE6aI4pABmpRnaYBQ'  # токен для YandexGPT
 FOLDER_ID = 'b1gr1l4ru3gbjel7ihgi'  # FoldeID для работы с Yandex GPT
 
