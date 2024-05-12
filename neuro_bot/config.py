@@ -1,7 +1,7 @@
 # Модуль настроек Нейро-бота
 
-TOKEN = '5924781016:AAFe6DmVlFmhFGWE18Y-wSfFN6gcHzrh3Zk'  # token телеграм-бота
-IAMTOKEN = ''  # токен для YandexGPT
+TOKEN = '6787855008:AAFNpFZ-Y1DD_x1mV0UYoPqH0AVwTW9iacQ'  # token телеграм-бота
+IAMTOKEN = 't1.9euelZrIlZPOzoqcyInJyo2LzcaWy-3rnpWajM2emZvPmYqJlsaSlpmQnI3l8_cLB35N-e93IHEM_t3z90s1e03573cgcQz-zef1656Vmp6Xj86QzJCUmJ6SyY7LkJiN7_zF656Vmp6Xj86QzJCUmJ6SyY7LkJiNveuelZqMzJybjouSzYzOy8yKlJePnrXehpzRnJCSj4qLmtGLmdKckJKPioua0pKai56bnoue0oye.Bh8-HNeYApXsGadB6jze4jYneMGmokMd-3A4QHWGMo02LOlS4h5rG6mKScfF7HMEcPyAoU_aL_upzllHKStXBQ'  # токен для YandexGPT
 FOLDER_ID = 'b1gr1l4ru3gbjel7ihgi'  # FoldeID для работы с Yandex GPT
 
 HOME_DIR = '/home/student/neuro_bot/neuro_bot'  # путь к папке с проектом

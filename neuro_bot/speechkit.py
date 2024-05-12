@@ -2,7 +2,7 @@
 import requests
 
 # from creds import IAMTOKEN, FOLDER_ID
-from config import STT_URL, TTS_URL, IAMTOKEN, FOLDER_ID
+from config import STT_URL, TTS_URL,  # IAMTOKEN, FOLDER_ID
 # импортирую модуль для получения токенов
 from creds import get_creds
 # получаю iam_token и folder_id

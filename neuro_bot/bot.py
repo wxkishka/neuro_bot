@@ -2,15 +2,13 @@
 import telebot
 import logging
 
-# from creds import TOKEN
-from config import TOKEN
-from config import DB_NAME, LOGS, COUNT_LAST_MSG
+from config import DB_NAME, LOGS, COUNT_LAST_MSG, TOKEN
 from database import create_database, add_message, get_last_messages
 from validators import (is_users_limit, is_gpt_token_limit,
                         is_stt_block_limit, is_tts_symbol_limit)
 from speechkit import speech_to_text, text_to_speech
 from yandex_gpt import ask_gpt
-from creds import get_bot_token  # модуль для получения bot_token
+# from creds import get_bot_token  # модуль для получения bot_token
 
 # настраиваю логирование событий.
 logging.basicConfig(filename=LOGS, level=logging.ERROR, format='%(asctime)s'
@@ -18,8 +16,8 @@ logging.basicConfig(filename=LOGS, level=logging.ERROR, format='%(asctime)s'
                     filemode='w')
 
 # Создаю объект bot.
-# bot = telebot.TeleBot(TOKEN)
-bot = telebot.TeleBot(get_bot_token())
+bot = telebot.TeleBot(TOKEN)
+# bot = telebot.TeleBot(get_bot_token())
 
 # Создаю базу данных и таблицу для хранения данных пользователя.
 create_database(DB_NAME)

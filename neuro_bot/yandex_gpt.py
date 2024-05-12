@@ -2,7 +2,7 @@
 import requests
 import logging  # модуль для сбора логов
 # импортирую константы из config файла
-from config import (LOGS, MAX_GPT_TOKENS, SYSTEM_PROMPT, IAMTOKEN, FOLDER_ID)
+from config import (LOGS, MAX_GPT_TOKENS, SYSTEM_PROMPT)  #, IAMTOKEN, FOLDER_ID)
 # импортирую модуль для получения токенов
 from creds import get_creds
 # получаю iam_token и folder_id
